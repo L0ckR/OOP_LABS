@@ -11,3 +11,5 @@ else()
 endif()
 
 include(FindThreads)
+
+add_subdirectory(tests)
