@@ -159,6 +159,10 @@ Eleven Eleven::operator-(const Eleven &other) const
 
 bool Eleven::operator==(const Eleven &other) const
 {
+    if (&other == this)
+    {
+        return true;
+    }
     if (size != other.size)
     {
         return false;
@@ -186,7 +190,6 @@ bool Eleven::operator<(const Eleven &other) const
 {
     if (&other == this)
     {
-        // throw std::logic_error("The same object");
         return false;
     }
 
