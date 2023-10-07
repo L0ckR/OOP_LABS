@@ -255,6 +255,7 @@ std::ostream &Eleven::print(std::ostream &os)
     {
         os << number[i];
     }
+    os << std::endl;
     return os;
 }
 
