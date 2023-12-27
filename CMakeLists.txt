@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(OS_LABS C CXX)
+project(OOP_LABS CXX)
 
 enable_testing()
 
@@ -17,5 +17,8 @@ add_subdirectory(lab1)
 
 #add LAB2
 add_subdirectory(lab2)
+
+#add LAB3
+add_subdirectory(lab3)
 
 add_subdirectory(tests)

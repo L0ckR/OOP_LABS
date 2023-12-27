@@ -1,4 +1,4 @@
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 23)
 
 add_executable(lab2 main.cpp src/Eleven.cpp include/Eleven.hpp)
 
