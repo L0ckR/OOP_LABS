@@ -11,7 +11,7 @@ add_library(GTest::GTest INTERFACE IMPORTED)
 target_link_libraries(GTest::GTest INTERFACE gtest_main)
 
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 23)
 
 #add LAB1
 add_executable(lab1_test lab1_test.cpp ../lab1/src/strToNum.cpp ../lab1/include/strToNum.hpp)
@@ -28,3 +28,11 @@ target_link_libraries(lab2_test PRIVATE GTest::GTest)
 target_include_directories(lab2_test PRIVATE ../lab2/include)
 
 add_test(lab2_test lab2_test)
+
+#add LAB3
+add_executable(lab3_test lab3_test.cpp ../lab3/src/figures.cpp ../lab3/src/point.cpp ../lab3/src/array.cpp ../lab3/include/figures.hpp ../lab3/include/point.hpp ../lab3/include/array.hpp)
+
+target_link_libraries(lab3_test PRIVATE GTest::GTest)
+target_include_directories(lab3_test PRIVATE ../lab3/include)
+
+add_test(lab3_test lab3_test)
