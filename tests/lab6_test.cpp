@@ -13,11 +13,11 @@ TEST(FightTest1, Fighting) {
     Dragon dragon("Dragon", 0, 50);
 
     EXPECT_FALSE(druid.fight(std::make_shared<Elf>(elf)));
-    EXPECT_FALSE(druid.fight(std::make_shared<Dragon>(dragon)));
-    EXPECT_FALSE(elf.fight(std::make_shared<Druid>(druid)));
-    EXPECT_TRUE(elf.fight(std::make_shared<Dragon>(dragon)));
-    EXPECT_FALSE(dragon.fight(std::make_shared<Elf>(elf)));
-    EXPECT_TRUE(dragon.fight(std::make_shared<Druid>(druid)));
+    EXPECT_TRUE(druid.fight(std::make_shared<Dragon>(dragon)));
+    EXPECT_TRUE(elf.fight(std::make_shared<Druid>(druid)));
+    EXPECT_FALSE(elf.fight(std::make_shared<Dragon>(dragon)));
+    EXPECT_TRUE(dragon.fight(std::make_shared<Elf>(elf)));
+    EXPECT_FALSE(dragon.fight(std::make_shared<Druid>(druid)));
 }
 
 TEST(FightTest2, MainFighting) {
@@ -53,20 +53,20 @@ TEST(VisitorTest, Visitor) {
 
     auto npcVisitor = std::make_shared<NPCVisitor>(elf);
 
-    EXPECT_TRUE(elf->accept(*npcVisitor));
-    EXPECT_FALSE(druid->accept(*npcVisitor));
-    EXPECT_TRUE(dragon->accept(*npcVisitor));
+    EXPECT_FALSE(elf->accept(*npcVisitor));
+    EXPECT_TRUE(druid->accept(*npcVisitor));
+    EXPECT_FALSE(dragon->accept(*npcVisitor));
 
     npcVisitor = std::make_shared<NPCVisitor>(druid);
 
     EXPECT_FALSE(elf->accept(*npcVisitor));
     EXPECT_FALSE(druid->accept(*npcVisitor));
-    EXPECT_FALSE(dragon->accept(*npcVisitor));
+    EXPECT_TRUE(dragon->accept(*npcVisitor));
 
     npcVisitor = std::make_shared<NPCVisitor>(dragon);
 
-    EXPECT_FALSE(elf->accept(*npcVisitor));
-    EXPECT_TRUE(druid->accept(*npcVisitor));
+    EXPECT_TRUE(elf->accept(*npcVisitor));
+    EXPECT_FALSE(druid->accept(*npcVisitor));
     EXPECT_FALSE(dragon->accept(*npcVisitor));
 }
 

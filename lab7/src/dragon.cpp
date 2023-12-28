@@ -13,10 +13,6 @@ bool Dragon::is_dragon() const {
     return true;
 }
 
-std::string Dragon::getType() const {
-    return "Dragon";
-}
-
 bool Dragon::fight(std::shared_ptr<Elf> other) {
     fight_notify(other, true);
     return true;
@@ -36,9 +32,9 @@ void Dragon::save(std::ostream &os) {
     os << DragonType << std::endl;
     NPC::save(os);
 }
-
-bool Dragon::accept(Visitor &visitor) {
-    return visitor.visit(*this);
+ 
+bool Dragon::accept(std::shared_ptr<NPC> visitor) {
+    return visitor->fight(std::shared_ptr<Dragon>(this,[](Dragon*){}));
 }
 
 std::ostream &operator<<(std::ostream &os, Dragon &dragon) {

@@ -13,9 +13,6 @@ bool Druid::is_druid() const {
     return true;
 }
 
-std::string Druid::getType() const {
-    return "Druid";
-}
 
 bool Druid::fight(std::shared_ptr<Elf> other) {
     fight_notify(other, false);
@@ -37,8 +34,8 @@ void Druid::save(std::ostream &os) {
     NPC::save(os);
 }
 
-bool Druid::accept(Visitor &visitor) {
-    return visitor.visit(*this);
+bool Druid::accept(std::shared_ptr<NPC> visitor) {
+    return visitor->fight(std::shared_ptr<Druid>(this,[](Druid*){}));
 }
 
 std::ostream &operator<<(std::ostream &os, Druid &druid) {

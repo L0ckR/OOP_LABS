@@ -57,3 +57,11 @@ target_link_libraries(lab6_test PRIVATE GTest::GTest)
 target_include_directories(lab6_test PRIVATE ../lab6/include)
 
 add_test(lab6_test lab6_test)
+
+#add LAB7
+add_executable(lab7_test lab7_test.cpp ../lab7/include/dragon.hpp ../lab7/include/npc.hpp ../lab7/include/observer.hpp ../lab7/include/elf.hpp ../lab7/include/druid.hpp ../lab7/src/dragon.cpp ../lab7/src/npc.cpp ../lab7/src/elf.cpp ../lab7/src/druid.cpp)
+
+target_link_libraries(lab7_test PRIVATE GTest::GTest)
+target_include_directories(lab7_test PRIVATE ../lab7/include)
+
+add_test(lab7_test lab7_test)
