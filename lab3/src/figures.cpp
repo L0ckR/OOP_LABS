@@ -13,25 +13,25 @@ Rectangle::Rectangle(const Point& point1, const Point& point2) {
     this->point2 = point2;
 }
 
-Rectangle::Rectangle(const Rectangle &sq) {
-    point1 = sq.point1;
-    point2 = sq.point2;
+Rectangle::Rectangle(const Rectangle &rect) {
+    point1 = rect.point1;
+    point2 = rect.point2;
 }
 
-Rectangle::Rectangle(Rectangle &&sq) {
-    point1 = sq.point1;
-    point2 = sq.point2;
+Rectangle::Rectangle(Rectangle &&rect) {
+    point1 = rect.point1;
+    point2 = rect.point2;
 }
     
-Rectangle& Rectangle::operator=(const Rectangle &sq) {
-    point1 = sq.point1;
-    point2 = sq.point2;
+Rectangle& Rectangle::operator=(const Rectangle &rect) {
+    point1 = rect.point1;
+    point2 = rect.point2;
     return *this;
 }
 
-Rectangle& Rectangle::operator=(Rectangle &&sq) {
-    point1 = sq.point1;
-    point2 = sq.point2;
+Rectangle& Rectangle::operator=(Rectangle &&rect) {
+    point1 = rect.point1;
+    point2 = rect.point2;
     return *this;
 }
 
@@ -47,17 +47,17 @@ Point Rectangle::geometricCenter() const {
     return Point::mid(point1, point2);
 }
 
-std::ostream& operator<<(std::ostream &stream, const Rectangle &sq) {
-    double deltaX = sq.point2.x - sq.point1.x, deltaY = sq.point2.y - sq.point1.y;
-    stream << "Rectangle[ " << sq.point1 << " " << sq.point1 + Point{deltaX, 0} << " " <<
-              sq.point1 + Point{0, deltaY} << " " << sq.point2 << " ]";
+std::ostream& operator<<(std::ostream &stream, const Rectangle &rect) {
+    double deltaX = rect.point2.x - rect.point1.x, deltaY = rect.point2.y - rect.point1.y;
+    stream << "Rectangle[ " << rect.point1 << " " << rect.point1 + Point{deltaX, 0} << " " <<
+              rect.point1 + Point{0, deltaY} << " " << rect.point2 << " ]";
     return stream;
 }
 
-std::istream& operator>>(std::istream &stream, Rectangle &sq) {
+std::istream& operator>>(std::istream &stream, Rectangle &rect) {
     Point p1, p2;
     stream >> p1 >> p2;
-    sq = Rectangle(p1, p2);
+    rect = Rectangle(p1, p2);
     return stream;
 }
 

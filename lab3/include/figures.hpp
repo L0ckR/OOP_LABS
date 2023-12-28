@@ -21,19 +21,19 @@ private:
 public:
     Rectangle() = default;
     Rectangle(const Point& point1, const Point& point2);
-    Rectangle(const Rectangle &sq);
-    Rectangle(Rectangle &&sq);
+    Rectangle(const Rectangle &rect);
+    Rectangle(Rectangle &&rect);
     
-    Rectangle& operator=(const Rectangle &sq);
-    Rectangle& operator=(Rectangle &&sq);
+    Rectangle& operator=(const Rectangle &rect);
+    Rectangle& operator=(Rectangle &&rect);
 
     bool operator==(const Rectangle &other);
 
     operator double () const override;
     Point geometricCenter() const override;
 
-    friend std::ostream& operator<<(std::ostream &stream, const Rectangle &sq);
-    friend std::istream& operator>>(std::istream &stream, Rectangle &sq);
+    friend std::ostream& operator<<(std::ostream &stream, const Rectangle &rect);
+    friend std::istream& operator>>(std::istream &stream, Rectangle &rect);
 };
 
 
