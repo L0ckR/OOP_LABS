@@ -26,4 +26,7 @@ add_subdirectory(lab3)
 #add LAB4
 add_subdirectory(lab4)
 
+#add LAB5
+add_subdirectory(lab5)
+
 add_subdirectory(tests)
