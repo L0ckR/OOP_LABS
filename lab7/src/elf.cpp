@@ -13,10 +13,6 @@ bool Elf::is_elf() const {
     return true;
 }
 
-std::string Elf::getType() const {
-    return "Elf";
-}
-
 bool Elf::fight(std::shared_ptr<Elf> other) {
     fight_notify(other, false);
     return false;
@@ -37,8 +33,8 @@ void Elf::save(std::ostream &os) {
     NPC::save(os);
 }
 
-bool Elf::accept(Visitor &visitor) {
-    return visitor.visit(*this);
+bool Elf::accept(std::shared_ptr<NPC> visitor) {
+    return visitor->fight(std::shared_ptr<Elf>(this,[](Elf*){}));
 }
 
 std::ostream &operator<<(std::ostream &os, Elf &elf) {
