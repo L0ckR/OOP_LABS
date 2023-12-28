@@ -49,3 +49,11 @@ target_link_libraries(lab5_test PRIVATE GTest::GTest)
 target_include_directories(lab5_test PRIVATE ../lab5/iterators ../lab5/list ../lab5/allocator)
 
 add_test(lab5_test lab5_test)
+
+#add LAB6
+add_executable(lab6_test lab6_test.cpp ../lab6/include/dragon.hpp ../lab6/include/factory.hpp ../lab6/include/npc.hpp ../lab6/include/observer.hpp ../lab6/include/elf.hpp ../lab6/include/druid.hpp ../lab6/include/visitor.hpp ../lab6/src/dragon.cpp ../lab6/src/factory.cpp ../lab6/src/npc.cpp ../lab6/src/observer.cpp ../lab6/src/elf.cpp ../lab6/src/druid.cpp ../lab6/src/visitor.cpp)
+
+target_link_libraries(lab6_test PRIVATE GTest::GTest)
+target_include_directories(lab6_test PRIVATE ../lab6/include)
+
+add_test(lab6_test lab6_test)
